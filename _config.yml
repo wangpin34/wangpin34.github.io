@@ -35,7 +35,7 @@ signature-img: img/signature/BeanTechSign-white.png
 github_username:    wangpin34
 # twitter_username:   Demonbane_x
 facebook_username:  
-linkedin_username:  王品
+linkedin_username:  wangpin
 
 # Build settings
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
