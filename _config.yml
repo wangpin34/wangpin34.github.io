@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: WangPIN
-subtitle: WangPIN 的博客
-author: WangPIN
+title: WP
+subtitle: WP 的博客
+author: WP
 language:
 timezone:
 
@@ -19,8 +19,8 @@ permalink_defaults:
 #Custom Setting Start
 
 # Site settings
-SEOTitle: WangPIN | 王品
-email: dmoneh@gmail.com
+SEOTitle: WP | 王品
+email: dmoneh@163.com
 description: ""
 keyword: ""
 header-img: img/header_img/home-bg-2-dark.png
