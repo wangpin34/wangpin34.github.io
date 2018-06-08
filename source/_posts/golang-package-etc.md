@@ -1,7 +1,7 @@
 ---
 title: Golang：package 和 访问权限，以及其他基本知识总结
 catalog: true
-date: 2018-02-02 15:46:05
+date: 2018-02-05 15:46:05
 subtitle: 
 header-img:
 tags:
