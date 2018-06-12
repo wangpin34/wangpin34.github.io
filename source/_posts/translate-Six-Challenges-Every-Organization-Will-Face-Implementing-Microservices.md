@@ -6,6 +6,7 @@ subtitle:
 header-img:
 tags: micro service
 ---
+原文链接：[https://thenewstack.io/microservices-standardization-moving-monolith-microservices/](https://thenewstack.io/microservices-standardization-moving-monolith-microservices/)
 ## 六个问题
 少量的微服务可以正常运行而不必过多干涉。而一旦程序规模上升，就像在其他任何系统中面临的问题一样，程序组织架构，人员配置，乃至资源分配，很小的问题也会被放大，以至于拖垮一个系统。
 
@@ -18,8 +19,6 @@ tags: micro service
 ### 更容易出错
 ![Alt text](29abad0d-screen-shot-2017-02-21-at-9.45.39-pm.png "optional title")
 系统越大，越容易产生错误。当你的系统中有数千个微服务在运行，任何一个都有可能出错。
-
-原文:[Six Challenges Every Organization Will Face Implementing Microservices](https://thenewstack.io/microservices-standardization-moving-monolith-microservices/)
 
 ### 资源竞争
 对于微服务来说，硬件资源，工程师，都是稀缺并且昂贵的。比如，当硬件资源紧张时，购买更多的硬件，并不能立刻解决问题。或者，在系统规模比较小的时候可以起作用，但是当你的微服务数量很多，就很难通过这种简单方式扩展。
