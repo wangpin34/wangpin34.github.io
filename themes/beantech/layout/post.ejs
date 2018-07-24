@@ -18,6 +18,10 @@ layout: layout
                 
 
                 <hr>
+                    <span class="meta">
+                        写于 <%= page.date.format(config.date_format) %>
+                    </span>
+                <hr>
                 <!-- Pager -->
                 <ul class="pager">
                     <% if (page.prev){ %>
@@ -77,7 +81,7 @@ layout: layout
                 <!-- disqus comment end -->
             </div>
             
-            <!-- Tabe of Content -->
+            <!-- Table of Content -->
             <%- partial('_partial/toc') %>
                 
             <!-- Sidebar Container -->

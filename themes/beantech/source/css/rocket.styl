@@ -6,7 +6,8 @@
   visibility: hidden;
   width: 42px;
   height: 43px;
-  background: url(images/ironman.png) no-repeat 50% 0;
+  background: url(images/uparrow.png) no-repeat 0 0;
+  background-size: 42px 43px;
   opacity: 0;
   -webkit-transition: visibility 0.6s cubic-bezier(0.6, 0.04, 0.98, 0.335), opacity 0.6s cubic-bezier(0.6, 0.04, 0.98, 0.335), -webkit-transform 0.6s cubic-bezier(0.6, 0.04, 0.98, 0.335);
   -moz-transition: visibility 0.6s cubic-bezier(0.6, 0.04, 0.98, 0.335), opacity 0.6s cubic-bezier(0.6, 0.04, 0.98, 0.335), -moz-transform 0.6s cubic-bezier(0.6, 0.04, 0.98, 0.335);
@@ -18,7 +19,7 @@
   display: block;
   margin-top: 48px;
   height: 14px;
-  background: url(images/ironman.png) no-repeat 50% -20px;
+  background: url(images/uparrow.png) no-repeat 0 0;
   opacity: .5;
   -webkit-transition: -webkit-transform .2s;
   -moz-transition: -moz-transform .2s;
@@ -27,9 +28,9 @@
   -moz-transform-origin: 50% 0;
   transform-origin: 50% 0; }
 #rocket:hover {
-  background-position: 50% -44px; }
+  opacity: 0.6; }
 #rocket:hover i {
-  background-position: 50% 100%;
+  opacity: 0.6;
   -webkit-animation: flaming .7s infinite;
   -moz-animation: flaming .7s infinite;
   animation: flaming .7s infinite; }

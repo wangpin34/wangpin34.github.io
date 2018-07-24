@@ -19,7 +19,7 @@ permalink_defaults:
 #Custom Setting Start
 
 # Site settings
-SEOTitle: WP
+SEOTitle: wangpin
 email: dmoneh@163.com
 description: ""
 keyword: ""
@@ -42,7 +42,7 @@ anchorjs: true                          # if you want to customize anchor. check
 
 
 # Disqus settings
-disqus_username: wangpin
+disqus_username: disqus_4VOWavlJNr
 
 # Duoshuo settings
 # duoshuo_username: kaijun
@@ -82,12 +82,7 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 
 
 ## Friends
-friends: [
-    {
-        title: "Bean Tech",
-        href: "http://beantech.org"
-    }
-]
+friends: 
 
 
 #Custom Setting End
@@ -105,7 +100,7 @@ i18n_dir: :lang
 skip_render:
 
 # Writing
-new_post_name: :title.md # File name of new posts
+new_post_name: :year-:month-:day-:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
@@ -130,7 +125,7 @@ home_posts_tag: true # show posts tags
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
 ## http://momentjs.com/docs/#/displaying/format/
-date_format: YYYY-MM-DD
+date_format: YYYY/MM/DD
 time_format: HH:mm:ss
 
 # Pagination
