@@ -13,11 +13,6 @@
             /*page*/
         <%} %>
     }
-    <% if (config.signature) {%>
-    #signature{
-        background-image: url('<%= config.root + config["signature-img"] %>');
-    }
-    <%}%>
 </style>
 
 <header class="intro-header" >
@@ -43,8 +38,6 @@
                         <span class="subheading"><%= page.description || config.subtitle || "" %></span>
                     </div>
                 <% } %>
-
-
                 </div>
             </div>
         </div>
