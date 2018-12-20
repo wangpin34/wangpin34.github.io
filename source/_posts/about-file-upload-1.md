@@ -3,7 +3,7 @@ title: 文件上传二三事
 catalog: true
 date: 2015-11-20 18:05:52
 subtitle:
-header-img:
+header-img: home-bg-2-dark.png
 tags:
 ---
 # 引子
