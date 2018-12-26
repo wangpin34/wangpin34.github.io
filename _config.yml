@@ -161,6 +161,6 @@ sitemap:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: wangpin:wangpin34/wangpin34.github.io
+  repo: github:wangpin34/wangpin34.github.io
   branch: master
 
