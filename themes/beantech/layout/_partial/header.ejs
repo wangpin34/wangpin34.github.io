@@ -1,7 +1,6 @@
-<!-- Modified by Yu-Hsuan Yen -->
 <!-- Post Header -->
 <style type="text/css">
-    header.intro-header{
+    header.intro-header, .site-heading {
         <% if (is_home()) { %>
             background-image: url('<%= config.root + config["header-img"] %>') 
             /*config*/
@@ -15,6 +14,7 @@
     }
 </style>
 
+<% if(page['header-img']) { %>
 <header class="intro-header" >
     <!-- Signature -->
     <div id="signature">
@@ -43,3 +43,24 @@
         </div>
     </div>
 </header>
+<% } else { %>
+  <% if (is_post()) { %>
+    <section class="post-heading">
+      <h1><%= page.title %></h1>
+      <h5 class="subheading"><%= page.subtitle || "" %></h5>
+      <ul class="tags">
+        <% page.tags.forEach(function(tag){ %>
+          <li>
+            <a class="tag" href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"><%= tag.name %></a>
+          </li>
+        <% }) %>
+      </ul>
+    </section>
+    <% } else { %>
+    <header class="site-heading">
+      <h1><%= page.title || config.title %></h1>
+      <!--<hr class="small">-->
+      <span class="subheading"><%= page.description || config.subtitle || "" %></span>
+    </header>
+  <% } %>
+<% } %>
