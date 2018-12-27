@@ -1,8 +1,8 @@
 ---
-title: gulp 拾遗 - 
+title: gulp 拾遗 - nodejs/配置文件/环境变量
 catalog: true
 date: 2018-12-20 14:38:57
-subtitle: nodejs，配置文件和环境变量
+subtitle: 在学习之前，有必要夯实基础
 header-img: 
 tags: gulp
 ---
