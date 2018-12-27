@@ -1,57 +1,17 @@
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="<%= config.root %>"><%= config.title %></a>
-        </div>
+<nav>
+  <a class="title" href="<%= config.root %>"><%= config.title %></a>
+  <ul>
+    <li>
+      <a href="<%= config.root %>">Home</a>
+    </li>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
-        <div class="nav-container">
-          <ul>
-            <li>
-              <a href="<%= config.root %>">Home</a>
-            </li>
-
-            <% site.pages.forEach(function(page){ %>
-              <% if(page.title){ %>
-              <li>
-                <a href="<%= config.root %><%= page.path.replace('index.html', '') %>"><%= page.title %></a>
-              </li>
-              <% } %>
-            <% }); %>
-              
-          </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
+    <% site.pages.forEach(function(page){ %>
+      <% if(page.title){ %>
+      <li>
+        <a href="<%= config.root %><%= page.path.replace('index.html', '') %>"><%= page.title %></a>
+      </li>
+      <% } %>
+    <% }); %>
+  </ul>
 </nav>
-<script>
-    // Drop Bootstarp low-performance Navbar
-    // Use customize navbar with high-quality material design animation
-    // in high-perf jank-free CSS3 implementation
-
-    window.onload = function(){
-      var $doc   = $(document.body);
-      var $toggle = $('.navbar-toggle');
-      var $navContainer = $('.nav-container');
-
-      function handleMagic(e){
-        $navContainer.toggle();
-      }
-
-      $toggle.on('click', handleMagic);
-    }
-</script>

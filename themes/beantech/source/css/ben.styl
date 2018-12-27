@@ -1,30 +1,118 @@
-.nav-container
-  ul
-    margin: 0
-    padding: 0
-    list-style-type: none
-    float: right
-    font-weight: bold
-    li
-      display: inline
-      a
-        text-transform: uppercase
-        font-size: 12px
-        line-height: 20px
-        font-weight: 800
-        letter-spacing: 1px
-        text-decoration: none
-        color: #F5F5F5
-        padding: 15px 10px
-        &:hover
-          background-color: hsla(0, 0%, 74%, 0.5)
-          color: #FAFAFA
+@import "variables.styl"
+@import "archive.styl"
 
-  @media screen and (max-width: 768px)
-    display: none
-    margin-right: -15px
-    
-    ul
-      background-color: hsla(0, 0%, 74%, 0.2)
-      li
-        display: block
+html
+  font-size: 62.5%
+  font-weight: 600
+
+body 
+  font-family: font-family
+  color: #404040
+  background-color: color-bg
+  overflow-x: hidden
+
+h1
+  font-size: 2em
+  margin: .67em 0
+h2
+  font-size: 1.5em 
+  margin: .75em 0
+h3
+  font-size: 1.17em 
+  margin: .83em 0 
+h5
+  font-size: .83em 
+  margin: 1.5em 0 
+h6
+  font-size: .75em
+  margin: 1.67em 0
+h1, h2, h3, h4, h5, h6
+  font-weight: 600
+  font-family: font-family
+
+ul, ol
+  margin: 0
+  padding: 0
+  list-style-type: none
+
+a
+  color: color-primary
+  &:visited
+    color: color-primary 
+  &:hover
+    color: color-primary-dark
+
+nav
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  z-index: 999
+  background-color: color-primary
+  height: nav-height
+  line-height: nav-height
+  vertical-align: middle
+  a
+    text-decoration: none !important
+    color: white
+    &:hover
+      color: gray600
+    &:visited
+      color: white
+    &.title 
+      font-size: 3rem
+      font-weight: 600
+      padding: 0 1.5em
+      
+  ul
+    float: right
+    li
+      display: inline-block
+      a
+        display: inline-block
+        text-transform: uppercase
+        font-size: 1.2rem
+        line-height: 2em
+        font-weight: 600
+        letter-spacing: 1px
+        padding: 1em 1.2em
+
+header.site-heading
+  margin-top: nav-height
+  color: white
+  height: 330px
+  background-color: color-primary
+  background-repeat: no-repeat 
+  background-position: center
+  background-origin: border-box
+  background-size: 100% auto
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  text-align: center
+
+
+.post-preview
+  a
+    text-decoration: none
+    h2.post-title 
+      font-size: 2.1rem
+      line-height: 1.3
+      margin-top: 3rem
+      margin-bottom: 0.8rem  
+      color: color-font-primary
+    &.hover h2.post-title 
+      color: #0085a1
+    h3.post-subtitle 
+      font-size: 1.5rem
+      line-height: 1.3
+      margin: 0
+      font-weight: 300
+      margin-bottom: 1rem
+    .post-content-preview 
+      font-size: 1.3rem
+      font-style: italic
+      color: color-font-secondary
+
+
