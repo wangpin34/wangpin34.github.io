@@ -2,7 +2,7 @@
 title: gulp 拾遗 (2) - 认识 glob 
 catalog: true
 date: 2018-12-26 17:05:16
-subtitle: 一致纠结于书写各种文件查找脚本，直到遇见 glob
+subtitle: 一直纠结于书写各种文件查找脚本，直到遇见 glob
 header-img:
 tags: gulp
 ---
