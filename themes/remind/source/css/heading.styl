@@ -1,0 +1,20 @@
+header.site-heading
+header.post-heading
+  margin-top: nav-height
+  color: white
+  height: calc(40vh)
+  background-color: color-primary
+  background-repeat: no-repeat 
+  background-position: top
+  background-origin: border-box
+  background-size: 100% auto
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  text-align: center
+
+@media all and (max-width: 768px)
+  header.site-heading
+  header.post-heading
+    height: calc(100vw * (853/1280))

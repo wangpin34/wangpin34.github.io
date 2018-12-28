@@ -1,6 +1,6 @@
 <!-- Post Header -->
 <style type="text/css">
-    header.intro-header, .site-heading {
+    .site-heading {
         <% if (is_home()) { %>
             background-image: url('<%= config.root + config["header-img"] %>') 
             /*config*/
@@ -15,7 +15,7 @@
 </style>
 
 <% if (is_post()) { %>
-    <section class="post-heading">
+    <header class="post-heading">
       <h1><%= page.title %></h1>
       <h5 class="subheading"><%= page.subtitle || "" %></h5>
       <ul class="tags">
@@ -25,7 +25,7 @@
           </li>
         <% }) %>
       </ul>
-    </section>
+    </header>
     <% } else { %>
     <header class="site-heading">
       <!--<hr class="small">-->
