@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: WP
+title: WangPin
 subtitle: 技术与生活
-author: WP
+author: WangPin
 language:
 timezone:
 
@@ -19,10 +19,14 @@ permalink_defaults:
 #Custom Setting Start
 
 # Site settings
-SEOTitle: wangpin
+SEOTitle: WangPin's Blog
 email: dmoneh@163.com
-description: ""
-keyword: "wanpgin"
+description: WangPin的博客
+keyword:
+  - WangPin
+  - 王品
+  - blog
+  - 博客
 header-img: img/header_img/forrest.jpeg
 
 
@@ -123,7 +127,7 @@ home_posts_tag: true # show posts tags
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
 ## http://momentjs.com/docs/#/displaying/format/
-date_format: YYYY/MM/DD
+date_format: YYYY年MM月DD日
 time_format: HH:mm:ss
 
 # Pagination
@@ -151,7 +155,7 @@ markdown:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: beantech
+theme: remind
 
 #sitemap
 sitemap:
@@ -161,6 +165,6 @@ sitemap:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: github:wangpin34/wangpin34.github.io
+  repo: wangpin:wangpin34/wangpin34.github.io
   branch: master
 
