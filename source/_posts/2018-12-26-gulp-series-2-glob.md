@@ -4,7 +4,7 @@ catalog: true
 date: 2018-12-26 17:05:16
 subtitle: 一直纠结于书写各种文件查找脚本，直到遇见 glob
 header-img:
-tags: gulp
+tags: [gulp,前端工程]
 ---
 # 为什么要用 glob
 gulp 的 [task](https://gulpjs.com/docs/en/getting-started/creating-tasks) 函数一般起自于 [src](https://gulpjs.com/docs/en/api/src) ：
