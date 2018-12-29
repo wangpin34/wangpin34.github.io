@@ -3,7 +3,6 @@ layout: layout
 ---
 <!-- Main Content -->
 <div class="container">
-    <div class="row">
         <% if(config.sidebar == false) { %>
 <!-- NO SIDEBAR -->
     <!-- Post Container -->
@@ -48,13 +47,7 @@ layout: layout
 
 <!-- USE SIDEBAR -->
     <!-- Post Container -->
-            <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+            <main>
             
                 <%- page.content || body %>
 
@@ -122,10 +115,9 @@ layout: layout
                     <!-- disqus 公共JS代码 end -->
                     <% } %>
                 <% } %>
-            </div>
+            </main>
 
           <%- partial('_partial/sidebar') %>
 
         <%} %>
     </div>
-</div>
