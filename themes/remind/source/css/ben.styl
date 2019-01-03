@@ -1,6 +1,12 @@
 @import "variables.styl"
 @import "archive.styl"
 @import "heading.styl"
+@import "tags.styl"
+@import "sidebar.styl"
+@import "footer.styl"
+
+* 
+  box-sizing: border-box
 
 html
   font-size: 62.5%
@@ -37,11 +43,6 @@ h1, h2, h3, h4, h5, h6
   font-weight: 400
   font-family: font-family
 
-ul, ol
-  margin: 0
-  padding: 0
-  list-style-type: none
-
 a
   color: color-primary
   &:visited
@@ -51,9 +52,22 @@ a
 
 hr    
   height: 1px
-  background-color: gray300
+  background-color: gray200
   margin-top: 1em
   border-width: 0
+  outline: none
+
+ul.normal, ol.normal
+  margin: 0
+  padding: 0
+  li
+    list-style-type: none
+ul.inline, ol.inline 
+  margin: 0
+  padding: 0
+  li 
+    list-style-type: none
+    display: inline
 
 nav
   position: fixed
@@ -139,21 +153,20 @@ nav
 
 
 .container 
-  padding: 0 1rem
   position: relative
+  display: flex
+  justify-content: space-around
+
+  @media all and (max-width: 768px)
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+      
+    main, .post-container 
+      width: 100%
+      order: -2
+      padding: 0 2rem
   
-main
-  width: 450px
-  margin: 0 auto
-@media all and (max-width: 768px)
-  main
-    width: 100%
-
-aside.sidebar-container
-  position: absolute
-  top: 5rem
-  right: 0
-
 
 .post-preview
   a
@@ -188,18 +201,4 @@ aside.sidebar-container
   .post-meta
     font-size: 1.2rem
     font-weight: font-weight-content
-
-.tags 
-  a
-    font-size: 1.2rem
-    text-decoration: none
-    border-radius: 1em
-    color: color-font-primary
-    border: 1px solid pink200
-    padding: 0.2em 0.5em
-    background-color: pink200
-    &:hover
-      background-color: pink100
-      border-color: pink100
-      background-color: pink100
 

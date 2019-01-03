@@ -6,7 +6,7 @@ layout: layout
         <% if(config.sidebar == false) { %>
 <!-- NO SIDEBAR -->
     <!-- Post Container -->
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
+            <div class="post-container">
                 <%- page.content || body %>
             </div>
     <!-- Sidebar Container -->
@@ -28,19 +28,6 @@ layout: layout
                         <% }) %>
                     </div>
                 </section>
-                <% }%>
-
-
-                <!-- Friends Blog -->
-                <% if(config.friends) { %>
-                <hr>
-                <h5>FRIENDS</h5>
-                <ul class="list-inline">
-
-                    <% config.friends.forEach(function(friend){ %>
-                        <li><a href="<%= friend.href %>"><%= friend.title %></a></li>
-                    <% }); %>
-                </ul>
                 <% }%>
             </div>
         <%} else { %>

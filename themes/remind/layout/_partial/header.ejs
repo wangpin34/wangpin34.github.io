@@ -14,21 +14,9 @@
     }
 </style>
 
-<% if (is_post()) { %>
-    <header class="post-heading">
-      <h1><%= page.title %></h1>
-      <h5 class="subheading"><%= page.subtitle || "" %></h5>
-      <ul class="tags">
-        <% page.tags.forEach(function(tag){ %>
-          <li>
-            <a class="tag" href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"><%= tag.name %></a>
-          </li>
-        <% }) %>
-      </ul>
-    </header>
-    <% } else { %>
-    <header class="site-heading">
-      <!--<hr class="small">-->
-      <h1 class="subheading"><%= page.description || config.subtitle || "" %></h1>
-    </header>
+<% if (!is_post()) { %>
+  <header class="site-heading">
+    <!--<hr class="small">-->
+    <h1 class="subheading"><%= page.description || config.subtitle || "" %></h1>
+  </header>
   <% } %>

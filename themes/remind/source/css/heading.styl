@@ -1,5 +1,16 @@
-header.site-heading
+@import "variables.styl"
+
+ul.tags 
+  li 
+    display: inline
+
 header.post-heading
+  margin-top: nav-height
+  color: color-font-primary
+  padding: 2em 1rem
+
+header.site-heading
+header.post-heading.header-img
   margin-top: nav-height
   color: white
   height: calc(40vh)
@@ -14,11 +25,7 @@ header.post-heading
   align-items: center
   text-align: center
 
-  ul.tags 
-    li 
-      display: inline
-
 @media all and (max-width: 768px)
   header.site-heading
-  header.post-heading
+  header.post-heading.header-img
     height: calc(100vw * (853/1280))

@@ -3,126 +3,111 @@ layout: layout
 ---
 
 <!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
+<div class="container">
+        <!-- Post Container -->
+        <div class="post-container">
+            <header>
+              <h1><%= page.title %></h1>
+              <h5 class="subheading"><%= page.subtitle || "" %></h5>
+            </header>
 
-            <!-- Post Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
+            <article><%- page.content %></article>
+            
 
+            <section class="meta">
+                写于 <%= page.date.format(config.date_format) %>
+            </section>
+            <hr>
+            <!-- Pager -->
+            <ul class="pager">
+                <% if (page.prev){ %>
+                    <li class="previous">
+                        <a href="<%- config.root %><%- page.prev.path %>" data-toggle="tooltip" data-placement="top" title="<%- page.prev.title %>">&larr; <%- page.prev.title %></a>
+                    </li>
+                <% } %>
+                <% if (page.next){ %>
+                    <li class="next">
+                        <a href="<%- config.root %><%- page.next.path %>" data-toggle="tooltip" data-placement="top" title="<%- page.next.title %>"><%- page.next.title %> &rarr;</a>
+                    </li>
+                <% } %>
+            </ul>
+
+            <!-- duoshuo Share start -->
+            <% if(config['duoshuo_share'] && config['duoshuo_username']) { %>
+                <div class="ds-share"
+                    style="text-align: right"
+                    data-thread-key="<%= page.path %>"
+                    data-title="<%= page.title %>"
+                    data-url="<%= page.permalink %>"
+                    data-images="<%= page["header-img"] ? page.permalink + page["header-img"] : '' %>"
+                    data-content="<%- truncate(strip_html(page.content), {length: 50, omission: '...'}) %> | <%= config.SEOTitle %> " >
+                    <div class="ds-share-inline">
+                      <ul  class="ds-share-icons-16">
+                        <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
+                        <li><a class="ds-wechat flat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+                        <li><a class="ds-weibo flat" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                        <li><a class="ds-douban flat" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
+                      </ul>
+                      <div class="ds-share-icons-more">
+                      </div>
+                    </div>
                 <hr>
-                    <span class="meta">
-                        写于 <%= page.date.format(config.date_format) %>
-                    </span>
-                <hr>
+                </div>
+            <% } %>
+            <!-- 多说 Share end-->
 
-                <%- page.content %>
-                
-
-                <hr>
-                    <span class="meta">
-                        写于 <%= page.date.format(config.date_format) %>
-                    </span>
-                <hr>
-                <!-- Pager -->
-                <ul class="pager">
-                    <% if (page.prev){ %>
-                        <li class="previous">
-                            <a href="<%- config.root %><%- page.prev.path %>" data-toggle="tooltip" data-placement="top" title="<%- page.prev.title %>">&larr; <%- page.prev.title %></a>
-                        </li>
-                    <% } %>
-                    <% if (page.next){ %>
-                        <li class="next">
-                            <a href="<%- config.root %><%- page.next.path %>" data-toggle="tooltip" data-placement="top" title="<%- page.next.title %>"><%- page.next.title %> &rarr;</a>
-                        </li>
-                    <% } %>
-                </ul>
-
-                <!-- duoshuo Share start -->
-                <% if(config['duoshuo_share'] && config['duoshuo_username']) { %>
-                    <div class="ds-share"
-                        style="text-align: right"
+            <!-- 多说评论框 start -->
+            <% if(config['duoshuo_username']) { %>
+                <div class="comment">
+                    <div class="ds-thread"
                         data-thread-key="<%= page.path %>"
                         data-title="<%= page.title %>"
-                        data-url="<%= page.permalink %>"
-                        data-images="<%= page["header-img"] ? page.permalink + page["header-img"] : '' %>"
-                        data-content="<%- truncate(strip_html(page.content), {length: 50, omission: '...'}) %> | <%= config.SEOTitle %> " >
-                        <div class="ds-share-inline">
-                          <ul  class="ds-share-icons-16">
-                            <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
-                            <li><a class="ds-wechat flat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-                            <li><a class="ds-weibo flat" href="javascript:void(0);" data-service="weibo">微博</a></li>
-                            <li><a class="ds-douban flat" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
-                          </ul>
-                          <div class="ds-share-icons-more">
-                          </div>
-                        </div>
-                    <hr>
+                        data-url="<%= page.permalink %>" >
                     </div>
-                <% } %>
-                <!-- 多说 Share end-->
+                </div>
+            <% } %>
+            <!-- 多说评论框 end -->
 
-                <!-- 多说评论框 start -->
-                <% if(config['duoshuo_username']) { %>
-                    <div class="comment">
-                        <div class="ds-thread"
-                            data-thread-key="<%= page.path %>"
-                            data-title="<%= page.title %>"
-                            data-url="<%= page.permalink %>" >
-                        </div>
-                    </div>
-                <% } %>
-                <!-- 多说评论框 end -->
-
-                <!-- disqus comment start -->
-                <% if(config['disqus_username']) { %>
-                    <div class="comment">
-                        <div id="disqus_thread" class="disqus-thread"></div>
-                    </div>
-                <% } %>
-                <!-- disqus comment end -->
-            </div>
+            <!-- disqus comment start -->
+            <% if(config['disqus_username']) { %>
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+            <% } %>
+            <!-- disqus comment end -->
+        </div>
             
-            <!-- Table of Content -->
-            <%- partial('_partial/toc') %>
-                
-            <!-- Sidebar Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
+        <!-- Sidebar Container -->
+        <div class="sidebar-container right">
 
-                <!-- Featured Tags -->
-                <% if(config['featured-tags']) { %>
-                <section>
-                    <!-- no hr -->
-                    <h5><a href="<%= config.root %>tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                       <% page.tags.forEach(function(tag){ %>
-                          <a class="tag" href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"><%= tag.name %></a>
-                        <% }) %>
-                    </div>
-                </section>
-                <% }%>
-
-                <!-- Friends Blog -->
-                <% if(config.friends) { %>
-                <hr>
-                <h5>FRIENDS</h5>
-                <ul class="list-inline">
-
-                    <% config.friends.forEach(function(friend){ %>
-                        <li><a href="<%= friend.href %>" target="_blank"><%= friend.title %></a></li>
-                    <% }); %>
+            <!-- Featured Tags -->
+            <% if(config['featured-tags']) { %>
+            <section>
+                <!-- no hr -->
+                <h5><a href="<%= config.root %>tags/">FEATURED TAGS</a></h5>
+                <ul class="tags">
+                    <% page.tags.forEach(function(tag){ %>
+                      <li>
+                        <a class="tag" href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"><%= tag.name %></a>
+                      </li>
+                    <% }) %>
                 </ul>
-                <% }%>
-            </div>
+            </section>
+            <% }%>
+
+            <!-- Friends Blog -->
+            <% if(config.friends) { %>
+            <hr>
+            <h5>FRIENDS</h5>
+            <ul class="list-inline">
+
+                <% config.friends.forEach(function(friend){ %>
+                    <li><a href="<%= friend.href %>" target="_blank"><%= friend.title %></a></li>
+                <% }); %>
+            </ul>
+            <% }%>
         </div>
     </div>
-</article>
 
 <% if(config['duoshuo_username']) { %>
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
