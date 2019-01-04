@@ -1,20 +1,22 @@
 <!-- Post Header -->
 <style type="text/css">
-    .site-heading {
-        <% if (is_home()) { %>
-            background-image: url('<%= config.root + config["header-img"] %>') 
-            /*config*/
-        <%} else if (is_post()){%>
-            background-image: url('<%= page["header-img"] %>')
-            /*post*/
-        <%} else {%>
-            background-image: url('<%= config.root + page["header-img"] %>')
-            /*page*/
-        <%} %>
-    }
+  .site-heading::before {
+  <% if (!is_post()) { %>
+    background-image: url('<%= config.root + config["header-img"] %>') 
+  <% } %> 
+  }
+
+  .post-heading::before {
+  <% if(is_post()) { %>
+    background-image: url('<%= page["header-img"] %>')
+  <% } %>
+  }
 </style>
 
-<% if (!is_post()) { %>
+<% if (is_post()) { %>
+  <header class="post-heading">
+</header>
+  <% } else { %>
   <header class="site-heading">
     <!--<hr class="small">-->
     <h1 class="subheading"><%= page.description || config.subtitle || "" %></h1>
