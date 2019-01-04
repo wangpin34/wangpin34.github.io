@@ -11,7 +11,7 @@
     <title>
         <% if (page.title) { %>
           <%= page.title + ' - ' + config.SEOTitle %>
-        <% } else{%>
+        <% } else {%>
           <%= config.SEOTitle %>
         <% } %>
     </title>
@@ -19,7 +19,6 @@
     <link rel="canonical" href="<%= config.url + config.root + (page.path||'').replace('index.html', '') %>">
     
     <!-- Pygments Highlight CSS -->
-    <%- css('css/highlight') %>
 
     <%- css('css/widget')%>
 
@@ -31,13 +30,16 @@
 
     <%- css('css/post')%>
 
+    <!-- highlight code -->
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
+
     <!-- Custom Fonts -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <!-- Hux change font-awesome CDN to qiniu -->
     <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
 
-
-    <!-- Hux Delete, sad but pending in China
+    <!-- pending in China
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
     css'>
@@ -55,4 +57,13 @@
     <script></script>
     <!-- jQuery -->
     <%- js('js/jquery.min.js') %>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+      $(document).ready(function() {
+        $('figure.highlight').each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
+      });
+    </script>
 </head>
