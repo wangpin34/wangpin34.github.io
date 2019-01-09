@@ -8,10 +8,13 @@
   flex-direction: column
 
   & > header 
-    color: white
     position: relative
     &.header-img
+      color: white
       height: 50vh
+      display: flex
+      flex-direction: column
+      justify-content: center
     & > *
       position: relative
     &::before
@@ -25,6 +28,7 @@
       background-repeat: no-repeat 
       background-position: center
       background-origin: border-box
+      background-color: gray100
       background-size: cover
 
   article
@@ -49,9 +53,12 @@
         text-decoration: underline
     img
       max-width: 100%
-      padding: 1em 0
+      padding: 0
       box-shadow: 0 0 4px gray500
-
+    ol,ul
+      margin: 0
+      padding: 1em
+      
   section.meta 
     color: color-primary-dark
     font-size: 1.5rem
