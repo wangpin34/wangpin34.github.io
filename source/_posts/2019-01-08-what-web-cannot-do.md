@@ -4,7 +4,7 @@ catalog: true
 date: 2019-01-08 16:45:37
 subtitle:
 header-img: header.jpg
-tags: [web app, pwa, 小程序，hybrid app]
+tags: [web app, pwa, 小程序, hybrid app]
 ---
 大概四五年前，我离开了那家做 EBS 的公司，选择进入一家中国软件公司，做 **java** 。虽然在此之前， 我的所有 **java** 的所有经验几乎都来自于业余练习，但凭着能说会道（会忽悠）外加技术确实不错（在第一家公司造了一些轮子），还是成功拿到了 offer，而且不止一份。最终选择家中国软件公司，完全是因为我想换个口味。
 
