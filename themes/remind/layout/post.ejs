@@ -93,13 +93,11 @@ layout: layout
             <section>
                 <!-- no hr -->
                 <h5><a href="<%= config.root %>tags/">FEATURED TAGS</a></h5>
-                <ul class="tags">
+                <section class="tags">
                     <% page.tags.forEach(function(tag){ %>
-                      <li>
-                        <a class="tag" href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"><%= tag.name %></a>
-                      </li>
+                      <a class="tag" href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"><%= tag.name %></a>
                     <% }) %>
-                </ul>
+                </section>
             </section>
             <% }%>
 
