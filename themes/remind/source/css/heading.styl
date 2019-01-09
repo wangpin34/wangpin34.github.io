@@ -1,4 +1,5 @@
 @import "variables.styl"
+@import "functions.styl"
 
 header-style()
   color: white
@@ -10,22 +11,9 @@ header-style()
   align-items: center
   text-align: center
 
-bg-header-img()
-  content: ""
-  position: absolute
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  filter: grayscale(100%)
-  background-repeat: no-repeat 
-  background-position: center
-  background-origin: border-box
-  background-size: cover
-
 header.site-heading
   header-style()
   & > * 
     position: relative
   &::before
-    bg-header-img()
+    bg-img()
