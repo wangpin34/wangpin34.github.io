@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: WangPin
-subtitle: 技术与生活
-author: WangPin
-language:
+title: Remind
+subtitle: 王品的博客
+author: 王品
+language: zh-CN
 timezone:
 
 # URL
@@ -19,12 +19,12 @@ permalink_defaults:
 #Custom Setting Start
 
 # Site settings
-SEOTitle: WangPin's Blog
+SEOTitle: Remind
 email: dmoneh@163.com
-description: WangPin的博客
+description: 王品的博客
 keyword:
-  - WangPin
   - 王品
+  - WangPin
   - blog
   - 博客
 header-img: img/header_img/forrest.jpeg
@@ -47,22 +47,22 @@ anchorjs: true                          # if you want to customize anchor. check
 disqus_username: disqus_4VOWavlJNr
 
 # Duoshuo settings
-# duoshuo_username: kaijun
+# duoshuo_username: 
 # Share component is depend on Comment so we can NOT use share only.
-duoshuo_share: true                     # set to false if you want to use Comment without Sharing
+duoshuo_share: false                    # set to false if you want to use Comment without Sharing
 
 
 # Analytics settings
 # Baidu Analytics
 # ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
 # Google Analytics
-ga_track_id: 'UA-XXXXXXXX-X'          # Format: UA-xxxxxx-xx
-ga_domain: yoursite
+ga_track_id: UA-132217694-1       # Format: UA-xxxxxx-xx
+ga_domain: wangpin.xyz
 
 
 # Sidebar settings
 sidebar: true                       # whether or not using Sidebar.
-sidebar-about-description: "Hi, I'm Wang Pin"
+sidebar-about-description: "不是卖牛排的"
 sidebar-avatar: img/me.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 widgets:
   left:
@@ -113,9 +113,10 @@ render_drafts: false
 post_asset_folder: true
 relative_link: false
 future: true
+## code config
 highlight:
   enable: true
-  line_number: true
+  line_number: false
   auto_detect: true
   tab_replace:
 
