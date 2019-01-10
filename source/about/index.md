@@ -1,6 +1,7 @@
 ---
 layout: "about"
-title: "About"
+title: "关于我"
+icon: fa-user # the font awesome icon used for this page
 date: 2016-04-21 04:48:33
 description: "Wish for the Best, Prepare for the Worst"
 header-img:  "img/header_img/reed-xia-790819-unsplash.jpg"
