@@ -1,4 +1,5 @@
 @import "variables.styl"
+@import "nav.styl"
 @import "archive.styl"
 @import "heading.styl"
 @import "tags.styl"
@@ -70,89 +71,7 @@ ul.inline, ol.inline
   li 
     list-style-type: none
     display: inline
-
-nav
-  position: fixed
-  top: 0
-  left: 0
-  width: 100%
-  z-index: 999
-  background-color: color-primary-dark
-  height: nav-height
-  line-height: nav-height
-  vertical-align: middle
-
-  & > i.remind 
-    display: none
-  a
-    text-decoration: none !important
-    color: white
-    &:hover
-      color: gray600
-    &:visited
-      color: white
-    &.title 
-      font-size: 2.5rem
-      font-weight: 600
-      padding: 0 1.5em
-      
-  ul
-    float: right
-    &:after 
-      content: ""
-      display: table
-      clear: both
-    li
-      display: inline-block
-      a
-        display: inline-block
-        text-transform: uppercase
-        font-size: 1.2rem
-        line-height: 2em
-        font-weight: 600
-        letter-spacing: 1px
-        padding: 1em 1.2em
-
-@media all and (max-width: 768px)
-  nav
-    font-size: 3rem
-    padding: 0 0.5em
-    text-align: center
-    & > i.remind
-      display: inline-block
-      position: absolute
-      left: 0.5em
-      font-size: 1em
-      line-height: nav-height
-      width: 1em
-      height: 1em
-      color: white
-      background-color: transparent
-    a.title
-      text-align: center 
-    ul 
-      display: none
-      &.visible
-        display: block
-        display: inline-block
-        position: absolute
-        top: nav-height
-        left: 0.5em
-        color: color-primary
-        background-color: white
-        box-shadow: 0 1px 5px gray100
-        li
-          display: block
-          line-height: 1em
-          text-align: left
-        a
-          line-height: 1.5
-          color: color-primary
-          &:hover
-            color: color-primary
-          &:visited
-            color: color-primary
-
+    
 
 .container 
   position: relative
