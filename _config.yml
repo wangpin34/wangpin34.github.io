@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Remind
-subtitle: 王品的博客
+title: 花萼横江
+subtitle: 
 author: 王品
 language: zh-CN
 timezone:
@@ -19,12 +19,12 @@ permalink_defaults:
 #Custom Setting Start
 
 # Site settings
-SEOTitle: Remind
+SEOTitle: 花萼横江
 email: dmoneh@163.com
-description: 王品的博客
+description: 花萼横江
 keyword:
+  - 花萼横江
   - 王品
-  - WangPin
   - blog
   - 博客
 header-img: img/header_img/forrest.jpeg
@@ -158,7 +158,7 @@ markdown:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: remind
+theme: hexo-theme-remind
 
 #sitemap
 sitemap:
@@ -168,6 +168,6 @@ sitemap:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: wangpin:wangpin34/wangpin34.github.io
+  repo: github:wangpin34/wangpin34.github.io
   branch: master
 

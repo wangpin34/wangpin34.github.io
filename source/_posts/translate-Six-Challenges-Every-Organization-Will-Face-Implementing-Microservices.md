@@ -5,6 +5,7 @@ date: 2018-06-12 10:30:51
 subtitle: 
 header-img:
 tags: micro service
+summary: 没有什么技术是万能解药。理论上讲，任何技术都是有阴暗面的（dark side）。
 ---
 原文链接：[https://thenewstack.io/microservices-standardization-moving-monolith-microservices/](https://thenewstack.io/microservices-standardization-moving-monolith-microservices/)
 ## 六个问题

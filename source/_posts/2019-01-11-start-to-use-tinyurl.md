@@ -5,6 +5,7 @@ date: 2019-01-11 14:30:54
 subtitle:
 header-img: iPad-Mini-iPhone.jpg
 tags: [tiny-url, url-shortener]
+summary: url 越来越长，阅读和传播都很不方便。tinyurl 可以随机生成一个短 url，帮你自动跳转到原始 url，完美解决了这个生活难题。
 ---
 
 # 楔子
