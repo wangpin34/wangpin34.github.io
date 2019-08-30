@@ -171,3 +171,15 @@ deploy:
   repo: github:wangpin34/wangpin34.github.io
   branch: master
 
+feed:
+  type: atom
+  path: /atom.xml
+  limit: false
+  hub:
+  content: true
+  content_limit_delim: ' '
+  order_by: -date
+  icon: icon.png
+
+homes:
+  github: https://github.com/wangpin34
