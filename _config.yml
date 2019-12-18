@@ -4,14 +4,14 @@
 
 # Site
 title: 花萼横江
-subtitle: 
+subtitle:
 author: 王品
 language: zh-CN
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://blog.wangpin.xyz       # Note: don't forget to modify the CNAME file to your url
+url: http://blog.wangpin.xyz # Note: don't forget to modify the CNAME file to your url
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -29,69 +29,60 @@ keyword:
   - 博客
 header-img: img/header_img/forrest.jpeg
 
-
 # SNS settings
 # RSS: false
 # weibo_username:     Demonbaneen
 zhihu_username: gu-sheng-86
 github_username: wangpin34
 # twitter_username:   Demonbane_x
-facebook_username:  
+facebook_username:
 # linkedin_username: wangpin
 
 # Build settings
-anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
-
+anchorjs: true # if you want to customize anchor. check out line:181 of `post.html`
 
 # Disqus settings
 disqus_username: disqus_4VOWavlJNr
 
 # Duoshuo settings
-# duoshuo_username: 
+# duoshuo_username:
 # Share component is depend on Comment so we can NOT use share only.
-duoshuo_share: false                    # set to false if you want to use Comment without Sharing
-
+duoshuo_share: false # set to false if you want to use Comment without Sharing
 
 # Analytics settings
 # Baidu Analytics
 # ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
 # Google Analytics
-ga_track_id: UA-132217694-1       # Format: UA-xxxxxx-xx
+ga_track_id: UA-132217694-1 # Format: UA-xxxxxx-xx
 ga_domain: wangpin.xyz
 
-
 # Sidebar settings
-sidebar: true                       # whether or not using Sidebar.
+sidebar: true # whether or not using Sidebar.
 sidebar-about-description: "不是卖牛排的"
-sidebar-avatar: img/me.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: img/me.jpg # use absolute URL, seeing it's used in both `/` and `/about/`
 widgets:
   left:
-  - short-about
+    - short-about
   right:
-  - featured-tags
-  - recent-posts
-  - friends-blog
+    - featured-tags
+    - recent-posts
+    - friends-blog
 # - archive
 # - category
 
 # widget behavior
 ## Archive
-archive_type: 'monthly'
+archive_type: "monthly"
 show_count: true
 
-
 ## Featured Tags
-featured-tags: true                     # whether or not using Feature-Tags
-featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
-
+featured-tags: true # whether or not using Feature-Tags
+featured-condition-size: 1 # A tag will be featured if the size of it is more than this condition value
 
 ## Friends
-friends: 
-
+friends:
 
 #Custom Setting End
-
-
 
 # Directory
 source_dir: source
@@ -143,7 +134,7 @@ archive_generator:
   yearly: true
   monthly: true
   daily: false
-  
+
 # Markdown-it config
 ## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
 markdown:
@@ -153,8 +144,8 @@ markdown:
     breaks: true
     linkify: true
     typographer: true
-    quotes: '“”‘’'
-  
+    quotes: "“”‘’"
+
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
@@ -168,8 +159,9 @@ sitemap:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: github:wangpin34/wangpin34.github.io
+  repo: https://github.com/wangpin34/wangpin34.github.io
   branch: master
+  token: $GITHUB_TOKEN
 
 feed:
   type: atom
@@ -177,7 +169,7 @@ feed:
   limit: false
   hub:
   content: true
-  content_limit_delim: ' '
+  content_limit_delim: " "
   order_by: -date
   icon: icon.png
 
