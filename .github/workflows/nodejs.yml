@@ -16,8 +16,6 @@ jobs:
           npm install
           npx hexo clean
           npx hexo generate
-          git config --global user.email "guyusay@gmail.com"
-          git config --global user.name "wang pin"
           npx hexo deploy
         env:
           CI: true

@@ -161,6 +161,8 @@ deploy:
   type: git
   repo: https://github.com/wangpin34/wangpin34.github.io
   branch: master
+  name: wangpin34
+  email: guyusay@gmail.com
   token: $GITHUB_TOKEN
 
 feed:
