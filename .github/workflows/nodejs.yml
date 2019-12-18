@@ -11,17 +11,27 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
-      - name: Build and deploy
+      - name: Setup yarn
+        run: |
+        curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+        echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+        sudo apt remove cmdtest
+        sudo apt update && sudo apt install --no-install-recommends yarn
+
+      - name: Build
         run: |
           mkdir -p ~/.ssh/
           echo "$GH_ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
-          git config --global user.name '${GITHUB_ACTOR}'
-          git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com'
-          npm install
+          git config --global user.name 'wangpin34'
+          git config --global user.email 'wangpin34@users.noreply.github.com'
+          yarn
           npx hexo clean
           npx hexo generate
+          
+      - name: Deploy
+        run: |
           npx hexo deploy
         env:
           GH_ACTION_DEPLOY_KEY: ${{secrets.GH_ACTION_DEPLOY_KEY}}
