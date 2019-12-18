@@ -13,7 +13,7 @@ jobs:
           node-version: 12
       - name: Configure github
         run: |
-          git config --global user.email guyusay@gmail.com
+          git config --global user.email 270280522@qq.com
           git config --global user.name wangpin34
       - name: npm install, build, and test
         run: |
