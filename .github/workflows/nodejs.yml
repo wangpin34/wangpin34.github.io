@@ -11,16 +11,17 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
-      - name: Configure github
+      - name: Build and deploy
         run: |
-          git config --global user.email 270280522@qq.com
-          git config --global user.name wangpin34
-      - name: npm install, build, and test
-        run: |
+          mkdir -p ~/.ssh/
+          echo "$GH_ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          git config --global user.name 'wangpin34'
+          git config --global user.email 'wangpin34@users.noreply.github.com'
           npm install
           npx hexo clean
           npx hexo generate
           npx hexo deploy
         env:
-          CI: true
-          GITHUB_TOKEN: ${{secrets.publish_token}}
+          GH_ACTION_DEPLOY_KEY: ${{secrets.GH_ACTION_DEPLOY_KEY}}
