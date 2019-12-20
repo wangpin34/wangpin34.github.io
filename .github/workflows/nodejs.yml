@@ -1,4 +1,4 @@
-name: Node CI
+name: Deploy site
 
 on: [push]
 
@@ -21,7 +21,6 @@ jobs:
       - name: Build
         run: |
           yarn
-          npx hexo clean
           npx hexo generate
 
       - name: Deploy
