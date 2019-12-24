@@ -29,6 +29,7 @@ jobs:
           GH_ACTION_DEPLOY_KEY: ${{secrets.GH_ACTION_DEPLOY_KEY}}
 
       - name: Setup theme
+        working-directory: ./themes
         run: |
           git clone git@github.com:wangpin34/hexo-theme-remind hexo-theme-remind
 
