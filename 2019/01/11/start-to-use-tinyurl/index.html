@@ -1,0 +1,20 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, shrink-to-fit=no, user-scalable=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="title" content="花萼横江"><meta name="sub title"><meta name="description" content="花萼横江"><meta name="key words"><meta name="author" content="王品"><meta name="language" content="zh-CN"><title>tiny url - 相见恨晚</title><link rel="stylesheet" type="text/css" href="/css/reset.css"><link rel="stylesheet" type="text/css" href="/css/index.css"><link rel="stylesheet" type="text/css" href="/css/nav.css"><link rel="stylesheet" type="text/css" href="/css/wigets.css"><link rel="stylesheet" type="text/css" href="/css/code.css"></head><body> <nav><div class="top-bar">花萼横江</div><label class="mobile-menu"><input type="checkbox"><div class="items"><a href="/">首页</a><a href="/about">关于</a><a href="/projects">项目</a><a href="/archives">归档</a></div><div class="overlap"></div></label></nav><section class="body"><article><header><h1><a href="/2019/01/11/start-to-use-tinyurl/">tiny url - 相见恨晚</a></h1><div class="metadata">创建于 2019年01月11日   最后一次更新于 2021-03-03 03:11</div></header><main><div class="summary">url 越来越长，阅读和传播都很不方便。tinyurl 可以随机生成一个短 url，帮你自动跳转到原始 url，完美解决了这个生活难题。</div><div class="dividing-line"></div><h1><span id="楔子">楔子</span></h1>
+<p>刚开始做 <strong>scrum master</strong> 的时候，经常要发邮件广播 <strong>user story</strong> 的实施情况。我司使用 jira 来管理这些 user store。jira 提供了丰富的 <strong>search query</strong> 来搜索指定的内容。通常，我会将这些 <strong>user store</strong> 的 <strong>search query</strong> 包含在文件中，以便别人参考。但这个链接往往过长，非常不容易拷贝（虽然大部分使用者都是点击邮件中的链接浏览器自动打开相应页面），也非常影响整个邮件的排版。所以，通常我都会手动编辑这个链接的 <strong>display text</strong>，将原本默认展示的链接内容改成一个较短的名字。但这样一来，又不利于别人拷贝然后直接转发。</p>
+<p>我的同事 Phoenix 是非常专业的 scrum 实践者，同时，也非常精通 jira。她告诉我，可以创建对应的 filter 来保存 query，然后只需要告知别人 filter 的链接或者名字就可以了。这个链接相对较短。我尝试了一下，很好用。但是，很多情况下我只是想临时分享一个长 url，也需要创建一个 filter。懒人思维作祟，我一定要知道另一个更加简便的办法，比如，输入长 url 自动转化为短 url，访问短 url 又能自动跳转到长 url。</p>
+<p>这就是 <strong>tiny url</strong>。</p>
+<h1><span id="tiny-url">tiny url</span></h1>
+<p><strong>tiny url</strong> 并不是我自己创造的，而且它也并不是一个新概念 - 早在 2002 年已经问世了。想想早在 17 年前就有前辈发现问题并提出了应对办法，不得不说，十分敬佩。</p>
+<p>这是 <a href="https://tinyurl.com/" target="_blank" rel="noopener">tiny url 官网</a>，以及首页简介。</p>
+<blockquote>
+<p>Are you sick of posting URLs in emails only to have it break when sent causing the recipient to have to cut and paste it back together? Then you’ve come to the right place. By entering in a URL in the text field below, we will create a tiny URL that will not break in email postings and never expires.</p>
+</blockquote>
+<p>tiny url 提出的理念（长 url 转化为短 url）影响了很多人，数以千计的 tiny url（或者称为 url shorter）应运而生。有面向后台 service 提供解决方案的，如 <a href="https://developers.rebrandly.com/" target="_blank" rel="noopener">rebrandly</a>，有面向 app 提供本地支持的，如我正在使用的一个 chrome 扩展 <a href="https://chrome.google.com/webstore/detail/tinyurl/lbadmllalinlpflkajgkkmjohckpnahm?hl=en" target="_blank" rel="noopener">tinyurl</a>。如果我想要将当前正在浏览的网页地址分享给别人，只需要点击它，就能立刻生成一个短 url。</p>
+<p><img src="chrome-extension-tinyurl.jpg" alt="chrome-extension-tinyurl.jpg"></p>
+<h1><span id="应用场景">应用场景</span></h1>
+<ol>
+<li>使用二维码来分享 url，如果 url 长度超过二维码可存储的数据长度，使用 <strong>tiny url</strong> 是个不错的办法。</li>
+<li>在某通讯工具中其假想敌的产品链接。<a href="https://www.zhihu.com/question/37871221" target="_blank" rel="noopener">知乎上有过类似讨论</a>。</li>
+</ol>
+<h1><span id="tiny-product">tiny product</span></h1>
+<p>tiny url 想做的事情很小，小的都没法写 ppt 去骗钱，但它依然有自己的价值 - 因为它确实解决了问题，虽然小，但帮助很多用户。比如对于我来说，简短的 url 看起来更加专业而精巧，所以邮件看起来也更加清爽。所以这就是所谓 tiny product 的价值。<strong>不求大而全，只要能在某个垂直领域做好，也能有自己的立足之地</strong>。这个规则可能不太适用于大投资的产品，毕竟他们普遍有盈利和上市的压力，但对于个人产品来说，能做到这份上，也算是不错的了。</p>
+</main></article></section><footer><section class="links"> <a href="atom.xml"> <span class="icon" name="rss"></span></a><a href="https://github.com/wangpin34"> <span class="icon" name="github"></span></a><a href="https://hexo.io">Hexo</a></section><section class="copyright">© 2019 王品</section></footer></body></html>

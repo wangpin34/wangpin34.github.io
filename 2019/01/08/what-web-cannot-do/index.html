@@ -1,0 +1,40 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, shrink-to-fit=no, user-scalable=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="title" content="花萼横江"><meta name="sub title"><meta name="description" content="花萼横江"><meta name="key words"><meta name="author" content="王品"><meta name="language" content="zh-CN"><title>震惊，web 应用不能做的 N 件事</title><link rel="stylesheet" type="text/css" href="/css/reset.css"><link rel="stylesheet" type="text/css" href="/css/index.css"><link rel="stylesheet" type="text/css" href="/css/nav.css"><link rel="stylesheet" type="text/css" href="/css/wigets.css"><link rel="stylesheet" type="text/css" href="/css/code.css"></head><body> <nav><div class="top-bar">花萼横江</div><label class="mobile-menu"><input type="checkbox"><div class="items"><a href="/">首页</a><a href="/about">关于</a><a href="/projects">项目</a><a href="/archives">归档</a></div><div class="overlap"></div></label></nav><section class="body"><article><header><h1><a href="/2019/01/08/what-web-cannot-do/">震惊，web 应用不能做的 N 件事</a></h1><div class="metadata">创建于 2019年01月08日   最后一次更新于 2021-03-03 03:11</div></header><main><div class="summary">web 应用开发和维护的成本相对原生应用颇为低廉，这是很多初创公司都会选择 web 应用的原因之一。低成本的另一面是并不优秀的性能和诸多限制。</div><div class="dividing-line"></div><h1><span id="web-应用的优势">web 应用的优势</span></h1>
+<p>我理解的<strong>web 应用</strong>其实就是网站的一种新形式。传统的网站通常以内容为主，交互为辅，比如 20 世纪初涌现的各大门户网站。而<strong>web 应用</strong> 则大多以丰富细腻的交互设计闻名，比如著名的 Gmail。虽然载体依然是浏览器，但使用方式更贴近传统意义上的用户软件，即原生应用。</p>
+<p><strong>原生应用</strong>一定是和某种操作平台严格绑定的软件，最直观的，它一定会使用目标平台支持的语言和框架进行开发，比如 win 平台的 c#，ios 的 object c &amp; swift， android 的 java &amp; kotlin，使用特定平台提供的 sdk 以访问物理数据。并且要编译打包为目标平台支持的软件格式，有时甚至要严格到某个版本的平台，才能正常运行。发布渠道一般也会掌握在平台所有者手中。</p>
+<p>说到 web 应用的优势，一般都要历数 原生应用 的各种「罪状」，如安装麻烦，兼容性差，升级不便。似乎 web 应用的诞生就是以取代 原生应用 为目标的。</p>
+<p>不相信吗？那我们一个一个说。</p>
+<h2><span id="无需安装">无需安装</span></h2>
+<p>使用原生应用必须先下载安装。熟知的微信，支付宝，office，乃至各类大小型游戏，想要使用它们，必须经历枯燥的下载 -&gt; 安装，当然中间过程比我们肉眼所见更为复杂。更别提寻找可靠的安装文件所要花费的精力。如果不小心安装了流氓软件，后续的卸载清理也是不小的工程。</p>
+<p>web 应用完全不需要这么麻烦。你需要的时候，只需要打开任何一个浏览器，输入地址或者打开收藏夹找到对应的链接，就可以开始使用了。不需要了，关掉对应的标签或者窗口。理论上讲，在别的电脑上使用这些 web 应用也是一样的容易。你不必像使用 原生应用 一样反复的安装。</p>
+<p>随着浏览器功能的增强和丰富，web 应用开始蚕食原生应用的领地。图像处理，文本编辑，web 应用在这些方面汇集了双方的优势，变得越来越不可忽视。以我为例，平时开发软件中经常使用的工具，大部分已经 web 化了，比如大量的在线编程环境 repl，codesandbox，codepen。</p>
+<h2><span id="无缝更新">无缝更新</span></h2>
+<p>上面说 web 应用无需安装，从技术上来讲，这是不准确的。web 应用也有代码，资源文件，在实际运行之前，也需要等待这些文件下载完成。只不过相比于 原生应用 庞大的安装包来说，web 应用所依赖的「安装包」，从体积上来说，足够轻量。这是因为，原生应用 需要很多额外的 sdk/lib 来提供必要的支持，而浏览器本身已经准备好了「足够」的支持。web 应用运行于浏览器之上，自不需要再像 原生应用 一样「自力更生」。</p>
+<p>浏览器之于 web 应用，就像操作系统+sdk 之于原生应用。</p>
+<p>从这里看，web 应用并非不需要更新，而是它的更新太简单了 - 服务器端部署新代码，客户浏览器打开 web 应用下载到新代码所赋予的更新。搭配上合理的缓存机制，web 应用的十分安静，所谓「无缝更新」。而原生应用必须要下载一个相对较大的安装包，来取代已经安装的应用。这个过程牵涉到系统的权限，存储，所以并不「安静」。所以，web 应用频繁的更新并不稀奇，原生应用 则应该尽量避免太频繁的更新，因为过度打扰用户不是好事。</p>
+<h2><span id="跨平台">跨平台</span></h2>
+<p>我们已经知道 web 应用运行于浏览器（或者浏览器环境）之上，所以 web 应用的跨平台指的并不是跨操作系统平台，而是跨浏览器。早期并不存在跨浏览器这个说法，事实上那个年代也不需要，因为 web 应用还未诞生。直到 js 成为浏览器事实上的编程语言，跨浏览器才成为一个需要去解决的难题。我们看到现在跨浏览器并不是什么值得大说特说的价值，因为这个难题已经几乎解决了。怎么解决的呢？一般我说到这里的时候要列出三个阶段。</p>
+<p>1 蛮荒时代<br>
+web 早期，浏览器环境差异极大，比较出名的是 event binder 上的差异。js 语言天生的灵活性在处理这种差异的时候得心应手，并且足够简单直接。这是 web 的蛮荒时代，也是百花齐放的时代。我曾经就收集了很多这样的代码片段，文件，即便是现在看起来，也会被前辈们的聪明才智所深深折服。<br>
+2 jquery<br>
+jquery 最杀手级的功能，是它完全复刻了 css selector。早期的 js 搜索 dom 的 api 相当简陋，尤其是不能按照层级关系搜索 dom（而有一定经验的 css writer 一定会大量的使用后代或者兄弟 selector）。jquery selector 填补了这片空白，而且做的很棒。初次之外，jquery 优秀的 api 设计，效率，都深刻的影响着后来者，和它的追随者。比如我以前写 lib 就不由自主的模仿 jquery 导出 instance 的方式。<br>
+3 殊途同归<br>
+时至今日，jquery 已经不再是舞台上的 super star。一方面是因为强调交互的 web 应用迫切的需要高开发效率的 mvvm 支持，另一方面，是浏览器们越来越同质化，已经不需要 jquery 夹在中间做 middle ware。现在，大部分时候，你都不需要在花太多的心思处理浏览器差异，写复杂的 dom selecter，原生 js 完全够用了。</p>
+<hr>
+<p>所以，web 应用的跨平台不是大风刮来的，也不是一蹴而就的。</p>
+<p>但是，web 应用和 原生应用 跨平台的难度确实是不同的，这显而易见。这就是浏览器作为中间承担跨平台底层工作，而向上提供「比较」跨平台的接口。这和 java 虚拟机的跨平台方式有相似之处。</p>
+<h1><span id="优势的另一面">优势的另一面</span></h1>
+<p>换一个角度，优势就变成劣势了。还是一个一个来。</p>
+<h2><span id="不能离线使用">不能离线使用</span></h2>
+<p>浏览器并不提供文件存储功能，所以，web 应用想要模仿 原生应用 做到安装之后离线使用，是不可能的（PWA 是个好东西）。浏览器就像一个传统的电视机，你要看电视，转到对应的频道就可以。看到不错的节目想保存下来以后看，对不起，人家做不到。</p>
+<h2><span id="不能访问本地资源">不能访问本地资源</span></h2>
+<p>原生应用 可以依托系统资源完成功能，比如更好看的系统相册，文本阅读器，通过摄像头，麦克风录入信息（比如淘宝，京东的拍物搜索，声音搜索）。web 应用受限于浏览器的安全设置，只能卡在外面看风景。</p>
+<h2><span id="js-的黑暗面">js 的黑暗面</span></h2>
+<p>前端之所以入门简单，就在 js 的异步模型。写过 java swing，甚至 android 都知道使用多个线程处理事件的繁琐和难以调试，但又不得不用否则 app 就无法正常工作。而写 web 应用则完全不需要考虑多线程，你只需要这样那样拼好项目，不管是 listen 用户指令，还是后台相应，都不担心互相影响。当然，前提是每段代码都足够快速。</p>
+<p>但有些情况下，代码运行速度会变慢，比如复杂的数据计算。js 在运行的时候浏览器，GUI 渲染线程和事件触发线程不工作，所以如果 js 长事件运行，web 应用就会变得卡顿。所以如果必须执行这样的代码，请务必了解以下 web workers。它会启动几个后台线程来运行 js。</p>
+<p>而且，js 本身的效率也并不优秀，这方面可以期望的方案是 <a href="https://webassembly.org/" target="_blank" rel="noopener">web assembly</a>，通过将 c++ 代码的编译结果加载到浏览器以提供更优秀的执行效率。js 在图形图像上的尴尬兴许也可以寄希望于 web assembly 的「超能力」。</p>
+<h2><span id="安全性">安全性</span></h2>
+<p>web 应用的开放特性使得被「别有用心」的坏人利用或者伤害的门槛极低。很多黑客将矛头对准了漏洞百出的 web 应用，而受到威胁的 web 应用的所有者们也开始武装自己。攻防双方持久对峙的结果是，一系列的安全策略，规范，被发明和广泛的利用起来，双方的内部损耗也相应变多。</p>
+<h1><span id="现实和未来">现实和未来</span></h1>
+<p>现实中， web 和 原生应用 两者并非竞争关系，更像是相互协助的好基友。有时两者分别承担不同的业务时期，比如 web 应用负责前期的宣传，比较消耗性能或者必须利用系统资源而不得不采用原生应用的时候，由 web 应用引导用户安装原生应用。有时 web 应用化为原生应用的一部分存在（webview），负责完成复杂且变动频繁的界面交互（hybird app）。</p>
+<p>另外一个值得注意的是 web 应用 native 化方案。目前主流的有 react-native，electron（其他概念类似的都不列举了）。可以看出行业的发展目标依旧是梦想着可以结合 web 应用和原生应用的各自优势。特别是，在人工成本居高不下，而 AI 自动开发还遥不可期的时代，仅仅是「一次编写多平台运行」这个跨平台特性，就使得 web 应用 成为一股不可忽视的声音。而只要可以跨平台而开发效率不难看，大部分人还是不怎么在乎是不是用 web 三件套的（html/css/js），比如最近火的一塌糊涂的 flutter。</p>
+</main></article></section><footer><section class="links"> <a href="atom.xml"> <span class="icon" name="rss"></span></a><a href="https://github.com/wangpin34"> <span class="icon" name="github"></span></a><a href="https://hexo.io">Hexo</a></section><section class="copyright">© 2019 王品</section></footer></body></html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, shrink-to-fit=no, user-scalable=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="title" content="花萼横江"><meta name="sub title"><meta name="description" content="花萼横江"><meta name="key words"><meta name="author" content="王品"><meta name="language" content="zh-CN"><title>Restful API 设计的三点经验之谈</title><link rel="stylesheet" type="text/css" href="/css/reset.css"><link rel="stylesheet" type="text/css" href="/css/index.css"><link rel="stylesheet" type="text/css" href="/css/nav.css"><link rel="stylesheet" type="text/css" href="/css/wigets.css"><link rel="stylesheet" type="text/css" href="/css/code.css"></head><body> <nav><div class="top-bar">花萼横江</div><label class="mobile-menu"><input type="checkbox"><div class="items"><a href="/">首页</a><a href="/about">关于</a><a href="/projects">项目</a><a href="/archives">归档</a></div><div class="overlap"></div></label></nav><section class="body"><article><header><h1><a href="/2019/01/23/three-points-of-restful-api-design/">Restful API 设计的三点经验之谈</a></h1><div class="metadata">创建于 2019年01月23日   最后一次更新于 2021-03-03 03:11</div></header><main><p>2015年冬天，我写下第一篇也是目前唯一一篇关于 Restful API 设计的文章。时间过的飞快，转眼三年前过去了。这三年间经历过的项目中，后台逐渐微服务化，restful 也成为大家耳熟能详的设计方案。这里记下些自己的经验和教训，以供对照。</p>
+<h2><span id="status-code">Status code</span></h2>
+<p>基本的 code 原则很简单，2xx 表示成功，4xx 表示客户端错误，5xx 表示服务端错误。</p>
+<p>那如何分辨是客户端还是服务端错误呢？我总结了以下几种常见的客户端错误，以及对应的错误码。</p>
+<ul>
+<li>401 - 未授权的访问比如访问资源需要 token 鉴权，如果不携带 token 或者 token 已过期，则返回 401.</li>
+<li>403 - forbidden，禁止访问。比如某些资源只允许管理员访问，非管理员则返回 403。</li>
+<li>404 - not found，不存在。</li>
+</ul>
+<p>总之，凡是客户的锅，都返回 4xx 。如果恰好不在上面所列的三种情况中，则用 400 代替。</p>
+<p>服务端自身错误则包含两类情况：</p>
+<ul>
+<li>io 错误，比如读写文件，访问数据库</li>
+<li>自身逻辑错误，比如内存泄漏。</li>
+</ul>
+<p>第一种错误是不可避免的，属于不可控的外部环境问题。第二种错误虽然可以通过 review 代码加上各种测试来预防，但<strong>最好</strong>有个兜底的错误处理以免程序挂掉。</p>
+<p>我司对于服务端错误统一返回 500（internal server error），因为考虑到服务端错误对于客户来讲毫无建设意义，毕竟客户绝对没有办法帮助我们解决错误。即使对于工程师来说，日志也比 code 更有表现力。相对而言，客户端错误则尽量设计的详细因为大部分情况下客户端要据此来引导用户回到正常的业务中来。比如，如果返回 401，则引导用户登陆或者注册。如果业务比较复杂，还要考虑扩展 reponse 来指明更加具体的错误。如：</p>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="number">400</span> <span class="keyword">bad </span>request</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"code"</span>: <span class="number">123</span>,</span><br><span class="line">  <span class="string">"message"</span>: <span class="string">"Name is required"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="list-api">List API</span></h2>
+<p>GET /orders</p>
+<figure class="highlight accesslog"><table><tr><td class="code"><pre><span class="line"><span class="number">200</span> OK</span><br><span class="line">&#123;</span><br><span class="line"> <span class="string">"offset"</span>: <span class="number">0</span>,</span><br><span class="line"> <span class="string">"limit"</span>: <span class="number">20</span>,</span><br><span class="line"> <span class="string">"count"</span>: <span class="number">100</span>,</span><br><span class="line"> <span class="string">"elements"</span>: <span class="string">[...]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于这个 List API，如果资源不存在，返回应该是什么。受 404 概念的普及影响，很多人会选择返回</p>
+<figure class="highlight basic"><table><tr><td class="code"><pre><span class="line"><span class="symbol">404 </span>NotFound</span><br></pre></td></tr></table></figure>
+<p>难道说，如果不存在 orders（订单） 就是错误吗？比如我从来没有在淘宝下过单，那订单列表也就应该显示客户端错误吗？这显然是不对的。实际上，404 是指所请求的资源不存在。而对于 orders 来说，它是一个集合概念。不管下没下过单，这个集合总归是存在的。按照这个理论，正确的返回应该是：</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="number">200</span> OK</span><br><span class="line">&#123;</span><br><span class="line"> <span class="string">"offset"</span>: <span class="number">0</span>,</span><br><span class="line"> <span class="string">"limit"</span>: <span class="number">20</span>,</span><br><span class="line"> <span class="string">"count"</span>: <span class="number">100</span>,</span><br><span class="line"> <span class="string">"elements"</span>: [] <span class="comment">// 空数组</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所以对于 List API 来说，没有 404。</p>
+<h2><span id="parent-resource">Parent resource</span></h2>
+<p>restful API 的路径可以表现资源的从属关系。比如，用户可以有多个地址。</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/users/</span>&#123;user_id&#125;<span class="regexp">/addresses/</span></span><br></pre></td></tr></table></figure>
+<p>那么，对于一个并不存在的用户而言，访问上述 API，应该返回什么？</p>
+<p>用户不存在，他的地址也必然不存在，那似乎是个简单的客户端错误。但我们确实有必要参考 Parent resource 的状态吗？这从理论上讲似乎毫无破绽，但实际操作及其困难。假如 Parent resource 的状态为 s1, Child resource 的状态为 s2，如果必须参考 s1 才能定义 s2，则 Child resource 的状态为 s1 * s2。这还是简单的层次，如果 Parent 之上还有 Parent，则最终 Child 的状态会变成 s0 * s1 * s2。如果随着业务的升级，每个节点的状态推算都要这样越来越复杂，那结果必然是整个系统的崩塌。</p>
+<p>所以，目前比较推崇的做法是，仅仅考虑目标资源或者资源集合的状态。即，addresses，不管它从属于谁。</p>
+</main></article></section><footer><section class="links"> <a href="atom.xml"> <span class="icon" name="rss"></span></a><a href="https://github.com/wangpin34"> <span class="icon" name="github"></span></a><a href="https://hexo.io">Hexo</a></section><section class="copyright">© 2019 王品</section></footer></body></html>

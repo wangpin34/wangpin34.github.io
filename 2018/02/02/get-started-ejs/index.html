@@ -1,0 +1,62 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, shrink-to-fit=no, user-scalable=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="title" content="花萼横江"><meta name="sub title"><meta name="description" content="花萼横江"><meta name="key words"><meta name="author" content="王品"><meta name="language" content="zh-CN"><title>ejs 入门</title><link rel="stylesheet" type="text/css" href="/css/reset.css"><link rel="stylesheet" type="text/css" href="/css/index.css"><link rel="stylesheet" type="text/css" href="/css/nav.css"><link rel="stylesheet" type="text/css" href="/css/wigets.css"><link rel="stylesheet" type="text/css" href="/css/code.css"></head><body> <nav><div class="top-bar">花萼横江</div><label class="mobile-menu"><input type="checkbox"><div class="items"><a href="/">首页</a><a href="/about">关于</a><a href="/projects">项目</a><a href="/archives">归档</a></div><div class="overlap"></div></label></nav><section class="body"><article><header><h1><a href="/2018/02/02/get-started-ejs/">ejs 入门</a></h1><div class="metadata">创建于 2018年02月02日   最后一次更新于 2021-03-03 03:11</div></header><main><h2><span id="为什么要学习模板引擎">为什么要学习模板引擎</span></h2>
+<p>在我年轻的时候，经常听长辈们前辈们说，先不要管是什么，集中精力狠狠地学一阵，自然能有所收获。在很长一段时间，我对这句话深信不疑并身体力行。说实话，在付出了比较可观的精力甚至财力之后，确实能有所收获。但也仅此而已，得到的很多知识和经验，往往并无太多实际意义。</p>
+<p>随着年岁的增长，可支配的时间大幅度减少，同时精力也不如年轻时旺盛。原本粗放的学习方式显得更加不合时宜。所以，现在我更多的问自己，这个东西对我有用吗？再好的知识，如果对我的个人提升无用，那也是没有意义的。</p>
+<p>回到本文主题，我之所以认为模板引擎很重要，原因无非是，它是一门收益极高的知识。它能将内容和html分离，想象这个特性的应用场景。假如有一个页面要给 20 个国家做国际化，那我们只需要准备 20 份 local 文件，一份模板，搭配对应的脚本，就能直接生成 20 个对应的 html 文件。 以后支持别的语言，也只需要新增 local 文件而已。如果这个项目的参与者不是程序员，那也没关系，他们所要关注的不是复杂多变的css和html，仅仅是 local 文件罢了。</p>
+<p>即使现今 react/vuejs/angular 大行其道，模板引擎依然有它的用武之地。至少，这个星球上还有那么多站点依然是内容展示而非 webapp，而即便是 webapp 也有对应的一些内容页面，这些，都是模板引擎可以发光发热的舞台。</p>
+<p>今天的主角是 ejs，开发者是大名鼎鼎的 tj。我的博客引擎 hexo 也默认支持 ejs 作为模板。</p>
+<h2><span id="安装">安装</span></h2>
+<p>ejs 是一个 js 模板引擎，语法简单，集成方便，被很多框架所使用。</p>
+<p>通过 npm 安装：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">npm <span class="selector-tag">i</span> ejs -S</span><br></pre></td></tr></table></figure>
+<p>也可以下载<a href="https://github.com/mde/ejs/releases/latest" target="_blank" rel="noopener">独立版本</a>。</p>
+<h2><span id="基本语法要素">基本语法要素</span></h2>
+<p>ejs 的语法比较简单： 初始化模板-&gt;加载数据-&gt;渲染</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//str 模板内容，一般从 .ejs 模板文件读取</span></span><br><span class="line"><span class="comment">//options 一些配置，比如分隔符，缓存，debug 输出，等等</span></span><br><span class="line"><span class="keyword">var</span> template = ejs.compile(str, options);</span><br><span class="line"></span><br><span class="line"><span class="comment">//data 待渲染的数据</span></span><br><span class="line"><span class="keyword">var</span> html = template(data);</span><br></pre></td></tr></table></figure>
+<p>如果不需要复用模板，可以直接生成 html</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">ejs.render(str, data, options);</span><br></pre></td></tr></table></figure>
+<p>实际的例子：<br>
+template.ejs</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;% if (user) &#123; %&gt;</span><br><span class="line">  &lt;h2&gt;&lt;%- user.name %&gt;&lt;/h2&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>index.js</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> ejs = <span class="built_in">require</span>(<span class="string">'ejs'</span>);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = fs.readFileSync(<span class="string">'template.ejs'</span>, &#123;<span class="attr">encoding</span>: <span class="string">'utf8'</span>&#125;);</span><br><span class="line"><span class="keyword">var</span> data = &#123; <span class="attr">user</span>: &#123; <span class="attr">name</span>: <span class="string">'wangpin'</span>, <span class="attr">age</span>: <span class="number">30</span> &#125; &#125;;</span><br><span class="line"><span class="keyword">var</span> template = ejs.compile(str);</span><br><span class="line"><span class="keyword">var</span> result = template(data);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+<p>输出结果:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>wangpin<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2><span id="标签">标签</span></h2>
+<p>上面的 template 中，使用到 3 种标签。</p>
+<ul>
+<li>&lt;% 程序标签，控制流程，没有输出。比如这里的 if (user)</li>
+<li>&lt;%- 输出标签，不做转义</li>
+<li>%&gt; 结束标签</li>
+</ul>
+<p>还有其他 4 种类型，这里一一介绍。</p>
+<ul>
+<li>&lt;%= 输出标签，转义 html 字符，比如 &lt; &gt;</li>
+<li>&lt;%# 注释，不输出任何内容</li>
+<li>&lt;%% 输出 <strong>&lt;%</strong></li>
+<li>-%&gt; 结束便签，并删除最近的一个空行</li>
+</ul>
+<h2><span id="包含-includes">包含 Includes</span></h2>
+<p>模板可以引用另一个模板的内容。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;% users.forEach(function(user)&#123; %&gt;</span><br><span class="line">    &lt;%- include(&apos;user/show&apos;, &#123;user: user&#125;); %&gt;</span><br><span class="line">  &lt;% &#125;); %&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<p>两个要点：</p>
+<ul>
+<li>不能转义模板内容，所以这里<strong>必须</strong>使用 <strong>&lt;%-</strong>。</li>
+<li>初始化父 template 的时候，options 中必须指定 filename。</li>
+</ul>
+<p>简单的例子：<br>
+subTemplate.ejs</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">%-</span> <span class="attr">user.hometown</span> %&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>template.ejs</p>
+<figure class="highlight erb"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%</span></span></span><span class="ruby"> <span class="keyword">if</span> (user) &#123; </span><span class="xml"><span class="tag">%&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">%-</span></span></span><span class="ruby"> user.name </span><span class="xml"><span class="tag">%&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">%-</span></span></span><span class="ruby"> <span class="keyword">include</span>(<span class="string">'./subTemplate'</span>, &#123;<span class="symbol">user:</span> user&#125;); </span><span class="xml"><span class="tag">%&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%</span></span></span><span class="ruby"> &#125; </span><span class="xml"><span class="tag">%&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>test.js</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> ejs = <span class="built_in">require</span>(<span class="string">'ejs'</span>);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = fs.readFileSync(<span class="string">'template.ejs'</span>, &#123;<span class="attr">encoding</span>: <span class="string">'utf8'</span>&#125;);</span><br><span class="line"><span class="keyword">var</span> data = &#123; <span class="attr">user</span>: &#123; <span class="attr">name</span>: <span class="string">'wangpin'</span>, <span class="attr">age</span>: <span class="number">30</span>, <span class="attr">hometown</span>: <span class="string">'weinan'</span> &#125; &#125;;</span><br><span class="line"><span class="comment">// 指定 filename 为 template</span></span><br><span class="line"><span class="keyword">var</span> template = ejs.compile(str, &#123; <span class="attr">filename</span>: <span class="string">'template'</span>&#125;);</span><br><span class="line"><span class="keyword">var</span> result = template(data);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+<p>指定 filename 是为了在解析 include 的时候确定 subTemplate 的相对路径。</p>
+<blockquote>
+<p>Includes are relative to the template with the include call</p>
+</blockquote>
+<h2><span id="定制分隔符">定制分隔符</span></h2>
+<p>默认使用的分隔符是 <strong>%</strong>, 如果想要换成其他字符，可以在全局，或者某个 template 上做单独的配置。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> ejs = <span class="built_in">require</span>(<span class="string">'ejs'</span>),</span><br><span class="line">    users = [<span class="string">'geddy'</span>, <span class="string">'neil'</span>, <span class="string">'alex'</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// Just one template</span></span><br><span class="line">ejs.render(<span class="string">'&lt;?= users.join(" | "); ?&gt;'</span>, &#123;<span class="attr">users</span>: users&#125;,</span><br><span class="line">    &#123;<span class="attr">delimiter</span>: <span class="string">'?'</span>&#125;);</span><br><span class="line"><span class="comment">// =&gt; 'geddy | neil | alex'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Or globally</span></span><br><span class="line">ejs.delimiter = <span class="string">'$'</span>;</span><br><span class="line">ejs.render(<span class="string">'&lt;$= users.join(" | "); $&gt;'</span>, &#123;<span class="attr">users</span>: users&#125;);</span><br></pre></td></tr></table></figure>
+<h2><span id="参考文档">参考文档</span></h2>
+<p><a href="http://ejs.co/" target="_blank" rel="noopener">http://ejs.co/</a></p>
+</main></article></section><footer><section class="links"> <a href="atom.xml"> <span class="icon" name="rss"></span></a><a href="https://github.com/wangpin34"> <span class="icon" name="github"></span></a><a href="https://hexo.io">Hexo</a></section><section class="copyright">© 2019 王品</section></footer></body></html>

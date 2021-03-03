@@ -1,0 +1,26 @@
+.dividing-line {
+  position: relative;
+  background-color: #7f8c8d;
+  width: 8px;
+  height: 8px;
+  margin: 18px auto;
+  padding: 0;
+  border-radius: 100%;
+}
+.dividing-line:before,
+.dividing-line:after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #7f8c8d;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+}
+.dividing-line:before {
+  left: -24px;
+}
+.dividing-line:after {
+  right: -24px;
+}

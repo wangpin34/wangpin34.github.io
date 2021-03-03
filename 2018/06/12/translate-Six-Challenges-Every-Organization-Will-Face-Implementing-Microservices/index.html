@@ -1,0 +1,60 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, shrink-to-fit=no, user-scalable=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="title" content="花萼横江"><meta name="sub title"><meta name="description" content="花萼横江"><meta name="key words"><meta name="author" content="王品"><meta name="language" content="zh-CN"><title>译-构建微服务面临的挑战</title><link rel="stylesheet" type="text/css" href="/css/reset.css"><link rel="stylesheet" type="text/css" href="/css/index.css"><link rel="stylesheet" type="text/css" href="/css/nav.css"><link rel="stylesheet" type="text/css" href="/css/wigets.css"><link rel="stylesheet" type="text/css" href="/css/code.css"></head><body> <nav><div class="top-bar">花萼横江</div><label class="mobile-menu"><input type="checkbox"><div class="items"><a href="/">首页</a><a href="/about">关于</a><a href="/projects">项目</a><a href="/archives">归档</a></div><div class="overlap"></div></label></nav><section class="body"><article><header><h1><a href="/2018/06/12/translate-Six-Challenges-Every-Organization-Will-Face-Implementing-Microservices/">译-构建微服务面临的挑战</a></h1><div class="metadata">创建于 2018年06月12日   最后一次更新于 2021-03-03 03:11</div></header><main><div class="summary">没有什么技术是万能解药。理论上讲，任何技术都是有阴暗面的（dark side）。</div><div class="dividing-line"></div><p>原文链接：<a href="https://thenewstack.io/microservices-standardization-moving-monolith-microservices/" target="_blank" rel="noopener">https://thenewstack.io/microservices-standardization-moving-monolith-microservices/</a></p>
+<h2><span id="六个问题">六个问题</span></h2>
+<p>少量的微服务可以正常运行而不必过多干涉。而一旦程序规模上升，就像在其他任何系统中面临的问题一样，程序组织架构，人员配置，乃至资源分配，很小的问题也会被放大，以至于拖垮一个系统。</p>
+<p>上个月的旧金山微服务实践峰会， 曾经供职于 Stripe 和 Uber 的工程师，<a href="https://www.linkedin.com/in/susan-fowler-263b6343/" target="_blank" rel="noopener">Susan Fowler-Rigetti</a> 福勒， 详细阐述了构建大规模微服务面临的 6 个问题。</p>
+<h3><span id="组织架构">组织架构</span></h3>
+<p><a href="http://www.melconway.com/Home/Conways_Law.html" target="_blank" rel="noopener">康威法则</a> 表示，软件公司的人员组织结构往往反映了他们在软件上架构。因此，当公司将传统的服务架构迁移到一个一个的微服务 – 然后他们马上就会拥有相应的一个个微服务团队。他们往往是相互孤立的，包括开发规范，实践经验等等有价值的信息都不能得到完全的共享。<br>
+“微服务工程师和团队变得和微服务本身一样”， 福勒说，“他们很擅长并且只擅长做自己的事情。” 这对于特定的一个团队是件好事，因为他们往往可以高效的处理事务。但是工程师转换到另一个团队会很困难。有些工程师反映说，换团队对于他们来说，更像是换了一个公司，因为工作方式完全不一样了。</p>
+<h3><span id="更容易出错">更容易出错</span></h3>
+<p><img src="29abad0d-screen-shot-2017-02-21-at-9.45.39-pm.png" alt="Alt text" title="optional title"><br>
+系统越大，越容易产生错误。当你的系统中有数千个微服务在运行，任何一个都有可能出错。</p>
+<h3><span id="资源竞争">资源竞争</span></h3>
+<p>对于微服务来说，硬件资源，工程师，都是稀缺并且昂贵的。比如，当硬件资源紧张时，购买更多的硬件，并不能立刻解决问题。或者，在系统规模比较小的时候可以起作用，但是当你的微服务数量很多，就很难通过这种简单方式扩展。</p>
+<p>当系统中有数十甚至上百个微服务时，如何有限考虑某些更关键的微服务？哪些应该得到更多资源？谁来负责做这样的决定？ 这都是大型系统亟需解决的问题。</p>
+<h3><span id="对微服务的误解">对微服务的误解</span></h3>
+<p>很多人将微服务看做狂野西部 —— 你可以做任何你想做的事情，用任何你喜欢的技术，语言，数据库，等等，最终形成一个可以被其他服务调用的服务。这样操作的副作用很大，因为整个系统会充满无数各式各样不同版本的数据库，代码库。</p>
+<p>另一个误解是将微服务视为银弹 —— 期望它会解决所有工程化方便遇到的难题。事实上，微服务应该是系统发展达到其扩展能力极限时，可以采用的一种方案。而不是摆脱工程难题的办法。</p>
+<h3><span id="技术债务">技术债务</span></h3>
+<p>当工程师们可以随心所欲的运用各种不同的技术，架构，脚本来构建差不多的微服务时，这意味着整个系统中会充满大量不确定的东西 —— 只有直接负责的工程师才知道他在代码里做了什么。一旦你需要修改这样的东西，重写是唯一的选择。</p>
+<h3><span id="缺乏信任">缺乏信任</span></h3>
+<p>微服务处于复杂的调用链之中，彼此依赖，但是由于缺乏工程规范和有效沟通，你可能很难确定其他微服务是可靠的。最终，你甚至没法衡量这些微服务可以在生产可靠工作。</p>
+<h2><span id="解决办法">解决办法</span></h2>
+<p>如果你的公司已经在采用微服务架构，以上问题可能并不新鲜。你更关心的一定是，如何解决以上问题呢?<br>
+第一，公司各个层面统一认识。标准化不仅仅是最佳实践，而是必须的原则。<br>
+第二，所有的微服务在架构，运营和组织标准上都遵循同样的原则，而不是某个或者某几个。这样我们才能确信所有的微服务都能提供可靠的服务。</p>
+<h3><span id="需要标准化">需要标准化</span></h3>
+<p><img src="d206b9c0-screen-shot-2017-02-21-at-9.39.57-pm-1024x408.png" alt="Alt text" title="optional title"><br>
+系统越大，越容易产生错误。当你的系统中有数千个微服务在运行，任何一个都有可能出错。</p>
+<p>上面的图片来自福勒的分享。如图，微服务在第四层工作。其他的层次，都应该提供统一的抽象接口或者服务，以供微服务使用。这能够有效地限制技术债务问题。</p>
+<blockquote>
+<p>很多人认为微服务架构提供免费的无限扩展性，这是错的，你还需要做更多额外的工作来确保它的扩展性没有被破坏。</p>
+</blockquote>
+<p>其次，对于<strong>生产环境可用性</strong>达成共识。这应该成为工程师文化的一部分。很多时候，工程师将标准化看做一种障碍，但在微服务的世界里并不成立。任何微服务都不能损害整个系统的完整性和标准化。</p>
+<h3><span id="production-ready-的微服务架构">production ready 的微服务架构</span></h3>
+<ul>
+<li>Stability</li>
+<li>Reliability</li>
+<li>Scalability</li>
+<li>Performance</li>
+<li>Fault-Tolerance</li>
+<li>Catastrophe-Preparedness</li>
+<li>Monitoring</li>
+<li>Documentation</li>
+</ul>
+<h3><span id="稳定性和可靠性">稳定性和可靠性</span></h3>
+<p>快速修改和部署是微服务最重要的两个话题，他们会影响微服务的稳定性。一个可靠的微服务，无论它如何被修改/部署，都不影响客户端，依赖它的所有其他服务，和它本身的生态系统。稳定性和可靠性通常是联系在一起的，稳定性的需求往往也是可靠性的需求。</p>
+<p>任何软件产品在正式交付使用前总是要经过严格的测试，微服务也不列外，通常，我们在生产环境之前准备多个 stack 用于测试微服务，称为 <a href="http://www.thenewstack.io/tag/continuous-integration-and-deployment" target="_blank" rel="noopener">development pipeline</a>。</p>
+<h3><span id="可扩展性和性能">可扩展性和性能</span></h3>
+<p>当微服务增长到一定规模时，你必须考虑如何管理数据流量。有一些语言天生不具备有效的扩展性，比如不允许并发，分区，效率提升。用这些语言书写的服务很难扩展。（nodejs？）在系统设计的初期，应该避免使用这些语言。</p>
+<p>可扩展性表示微服务可以处理多少请求，而性能表示如何处理这些请求。高性能服务可以更高效的利用资源，处理任务，高速处理用户请求。如何一个服务扩展性较差，未来会导致诸如服务中断急剧增加，最终导致可用性下降。</p>
+<h3><span id="容错和灾难防护">容错和灾难防护</span></h3>
+<p>为了确保可用性，工程师要保证即使微服务本身出错，整个系统不会因此而受损。工程师必须清楚的知道所有可能会导致故障的方式，并在出现故障时自动备份。</p>
+<p>强大的弹性测试是成功应对灾难的关键。这包括代码测试，负载测试和其他主动测试中的混乱测试。每一种失败模式都应该投入生产环境，看看它是如何生存的。</p>
+<p>鉴于微服务环境和复杂的依赖链的复杂性，失败是不可避免的。 微服务需要能够承受内部和外部故障。</p>
+<h3><span id="监控">监控</span></h3>
+<p>系统的状态瞬息万变，所以，使用监控工具使用检测系统的状态非常重要。不夸张的时候，缺乏有效监控是&quot;导致“系统瘫痪的第二大原因。监控能够提供实时的系统状态，运维人员可以据此来预测系统发展，以及防范和规避灾难。另一个相关的东西是日志。根据福勒的说法，日志是监控的重要组成部分。要知道发生了什么事情，那就只能去查阅事件发生时的日志。</p>
+<h3><span id="文档">文档</span></h3>
+<p>大部分的工程师都不喜欢写文档，但它非常重要。除了消除技术债务，它对于其他工程师快速切入新项目也非常重要。</p>
+<h2><span id="更多内容">更多内容</span></h2>
+<p><a href="https://www.amazon.com/Production-Ready-Microservices-Standardized-Engineering-Organization/dp/1491965975/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1487184502&amp;sr=1-1&amp;keywords=Production-Ready+Microservices" target="_blank" rel="noopener">Production-Ready Microservices</a></p>
+</main></article></section><footer><section class="links"> <a href="atom.xml"> <span class="icon" name="rss"></span></a><a href="https://github.com/wangpin34"> <span class="icon" name="github"></span></a><a href="https://hexo.io">Hexo</a></section><section class="copyright">© 2019 王品</section></footer></body></html>

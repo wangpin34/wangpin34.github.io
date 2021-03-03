@@ -1,0 +1,32 @@
+footer {
+  min-height: 80px;
+  text-align: center;
+  padding: 32px 0;
+  background-color: bg-color;
+  color: font-secondary-color;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+footer a,
+footer a.active,
+footer a.link,
+footer a.visited {
+  color: #3498db;
+  text-decoration: underline;
+}
+footer section.links {
+  font-size: 14px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+footer section.links a + a {
+  margin-left: 8px;
+}
+footer section.copyright {
+  font-size: 14px;
+  margin-top: 24px;
+}

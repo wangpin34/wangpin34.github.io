@@ -1,0 +1,131 @@
+nav {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  border-bottom: 1px solid #ecf0f1;
+  font-size: 16px;
+  line-height: 4;
+}
+nav .top-bar {
+  display: none;
+  z-index: 3;
+}
+nav a,
+nav a.active,
+nav a.link,
+nav a.visited {
+  color: #2c3e50;
+  text-decoration: none;
+  padding: 0 2em;
+  font-weight: lighter;
+  transition: font-weight 200ms ease-out;
+}
+nav a:hover,
+nav a.active:hover,
+nav a.link:hover,
+nav a.visited:hover,
+nav a:focus,
+nav a.active:focus,
+nav a.link:focus,
+nav a.visited:focus {
+  font-weight: bold;
+}
+nav a.active,
+nav a.active.active,
+nav a.link.active,
+nav a.visited.active {
+  font-weight: bold;
+  color: #e74c3c;
+}
+nav .mobile-menu input {
+  display: none;
+}
+@media all and (max-width: 750px) {
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 68px;
+    z-index: 999;
+    background-color: #fff;
+  }
+  nav .top-bar {
+    display: block;
+    border-bottom: 1px solid #95a5a6;
+    background-color: #ecf0f1;
+  }
+  nav .items {
+    transform: translate(-50vw);
+    transition: transform 200ms ease-in-out;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 50vw;
+    height: calc(100vh - 64px);
+    top: 68px;
+    left: 0;
+    background-color: #fff;
+    z-index: 2;
+  }
+  nav .items a,
+  nav .items a.active,
+  nav .items a.link,
+  nav .items a.visited {
+    padding: 0 8px;
+  }
+  nav .items a:hover,
+  nav .items a.active:hover,
+  nav .items a.link:hover,
+  nav .items a.visited:hover,
+  nav .items a:focus,
+  nav .items a.active:focus,
+  nav .items a.link:focus,
+  nav .items a.visited:focus {
+    font-weight: lighter;
+  }
+  nav .items a.active,
+  nav .items a.active.active,
+  nav .items a.link.active,
+  nav .items a.visited.active {
+    font-weight: lighter;
+    color: unset;
+  }
+  nav .overlap {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 64px);
+    top: 64px;
+    background-color: #ecf0f1;
+    z-index: 1;
+    display: none;
+  }
+  nav .mobile-menu {
+    display: block;
+  }
+  nav .mobile-menu:before {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 32px 32px;
+    background-image: url("/assets/menu.svg");
+    position: fixed;
+    top: 16px;
+    left: 24px;
+  }
+  nav .mobile-menu input:checked ~ .items {
+    transform: translate(0);
+  }
+  nav .mobile-menu input:checked ~ .overlap {
+    display: block;
+    opacity: 0.8;
+  }
+}
